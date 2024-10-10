@@ -5,5 +5,19 @@
 
   <body>
     <h1>Welcome to Services page!</h1>
+
+    <h1>Services</h1>
+    <table border="1" cellpadding="10">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+      {% for service in services %}
+      <tr>
+        <td>{{service.title}}</td>
+        <td>{{service.description}}</td>
+      </tr>
+      {% endfor %}
+    </table>
   </body>
 </html>
