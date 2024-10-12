@@ -22,8 +22,8 @@ from portfolio import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     # static url
-    path("", views.HomePage),
-    path("about-us/", views.AboutPage),
-    path("services/", views.ServicePage),
-    path("contact/", views.ContactPage),
+    path("", views.HomePage, name="home"),
+    path("about-us/", views.AboutPage, name="about"),
+    path("services/", views.ServicePage, name="services"),
+    path("contact/", views.ContactPage, name="contact"),
 ]
