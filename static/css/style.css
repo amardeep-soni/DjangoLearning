@@ -76,8 +76,9 @@ a:active {
     letter-spacing: .2em;
 }
 
-.site-navbar .navbar-nav.active>a {
+.site-navbar .navbar-nav a.active {
     color: #bac964 !important;
+    border-bottom: 3px solid #bac964;
 }
 
 .site-navbar.scrolled {
