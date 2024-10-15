@@ -29,4 +29,6 @@ urlpatterns = [
     path("userform/", views.UserForm, name="userform"),
     path("userform2/", views.UserForm2, name="userform2"),
     path("userform3/", views.UserForm3, name="userform3"),
+    path("userform4/", views.UserForm4, name="userform4"),
+    path("output/", views.Output, name="output"),
 ]
