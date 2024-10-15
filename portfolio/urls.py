@@ -26,4 +26,5 @@ urlpatterns = [
     path("about-us/", views.AboutPage, name="about"),
     path("services/", views.ServicePage, name="services"),
     path("contact/", views.ContactPage, name="contact"),
+    path("userform/", views.UserForm, name="userform"),
 ]

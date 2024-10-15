@@ -16,3 +16,16 @@ def ServicePage(request):
 
 def ContactPage(request):
     return render(request, "contact.html")
+
+
+def UserForm(request):
+    data = {}
+    try:
+        value1 = request.GET["value1"]
+        value2 = request.GET["value2"]
+        output = int(value1) + int(value2)
+        data = {"value1": value1, "value2": value2, "output": output}
+    except:
+        pass
+
+    return render(request, "userForm.html", data)
