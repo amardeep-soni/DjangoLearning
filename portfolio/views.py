@@ -41,3 +41,16 @@ def UserForm2(request):
         pass
 
     return render(request, "userForm2.html", data)
+
+def UserForm3(request):
+    data = {}
+    try:
+        value1 = request.POST["value1"]
+        value2 = request.POST["value2"]
+        output = int(value1) + int(value2)
+        data = {"value1": value1, "value2": value2, "output": output}
+        return render(request, "output.html", data)
+    except:
+        pass
+
+    return render(request, "userForm3.html")
