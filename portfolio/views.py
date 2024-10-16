@@ -81,3 +81,30 @@ def Output(request):
 def djangoForm(request):
     data = {"fn": DjangoForm}
     return render(request, "djangoform.html", data)
+
+
+def Calculator(request):
+    data = {}
+    try:
+        value1 = request.POST["value1"]
+        operator = request.POST["operator"]
+        value2 = request.POST["value2"]
+        output = 0
+        if operator == "+":
+            output = int(value1) + int(value2)
+        elif operator == "-":
+            output = int(value1) - int(value2)
+        elif operator == "*":
+            output = int(value1) * int(value2)
+        elif operator == "/":
+            output = int(value1) / int(value2)
+        data = {
+            "value1": value1,
+            "value2": value2,
+            "operator": operator,
+            "output": output,
+        }
+    except:
+        pass
+
+    return render(request, "calculator.html", data)
