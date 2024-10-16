@@ -83,28 +83,53 @@ def djangoForm(request):
     return render(request, "djangoform.html", data)
 
 
+from django.shortcuts import render
+
+
 def Calculator(request):
-    data = {}
-    try:
-        value1 = request.POST["value1"]
-        operator = request.POST["operator"]
-        value2 = request.POST["value2"]
-        output = 0
-        if operator == "+":
-            output = int(value1) + int(value2)
-        elif operator == "-":
-            output = int(value1) - int(value2)
-        elif operator == "*":
-            output = int(value1) * int(value2)
-        elif operator == "/":
-            output = int(value1) / int(value2)
-        data = {
-            "value1": value1,
-            "value2": value2,
-            "operator": operator,
-            "output": output,
-        }
-    except:
-        pass
+    data = {"value1": "", "value2": "", "operator": "", "output": "", "error": ""}
+
+    if request.method == "POST":
+        try:
+            value1 = request.POST["value1"]
+            value2 = request.POST["value2"]
+            operator = request.POST["operator"]
+
+            # Store the input values in data for rendering
+            data["value1"] = value1
+            data["value2"] = value2
+            data["operator"] = operator
+
+            # Validate inputs
+            if value1 == "":
+                data["error"] = "Value1 must be provided"
+            elif value2 == "":
+                data["error"] = "Value2 must be provided"
+            elif operator == "":
+                data["error"] = "Operator must be provided"
+            else:
+                # Convert values to integers and perform calculation
+                try:
+                    num1 = int(value1)
+                    num2 = int(value2)
+
+                    if operator == "+":
+                        data["output"] = num1 + num2
+                    elif operator == "-":
+                        data["output"] = num1 - num2
+                    elif operator == "*":
+                        data["output"] = num1 * num2
+                    elif operator == "/":
+                        if num2 == 0:
+                            data["error"] = "Cannot divide by zero"
+                        else:
+                            data["output"] = num1 / num2
+                    else:
+                        data["error"] = "Invalid operator"
+                except ValueError:
+                    data["error"] = "Invalid number format"
+
+        except Exception as e:
+            data["error"] = str(e)
 
     return render(request, "calculator.html", data)

@@ -3,6 +3,9 @@
 <section class="site-section mt-5" id="section-about">
     <div class="container">
         <form method="POST">
+            {% if error %}
+            <p class="errorMsg">{{ error }}</p>
+            {% endif %}
             {% csrf_token %}
             <div class="form-group">
                 <label for="name">value1</label>
