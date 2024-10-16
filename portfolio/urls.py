@@ -31,4 +31,5 @@ urlpatterns = [
     path("userform3/", views.UserForm3, name="userform3"),
     path("userform4/", views.UserForm4, name="userform4"),
     path("output/", views.Output, name="output"),
+    path("djangoform/", views.djangoForm, name="djangoform"),
 ]

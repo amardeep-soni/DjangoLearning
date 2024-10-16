@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .forms import DjangoForm
 
 
 def HomePage(request):
@@ -67,10 +68,16 @@ def Output(request):
     try:
         value1 = request.POST["value1"]
         value2 = request.POST["value2"]
+        print(value1, value2)
         output = int(value1) + int(value2)
         data = {"value1": value1, "value2": value2, "output": output}
         return render(request, "output.html", data)
     except:
         pass
 
-    return render(request, "userForm3.html")
+    return render(request, "output.html")
+
+
+def djangoForm(request):
+    data = {"fn": DjangoForm}
+    return render(request, "djangoform.html", data)
