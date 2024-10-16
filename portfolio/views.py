@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import DjangoForm
+from service.models import Service
 
 
 def HomePage(request):
@@ -12,7 +13,11 @@ def AboutPage(request):
 
 
 def ServicePage(request):
-    return render(request, "services.html")
+    serviceDatas = Service.objects.all()
+    data = {
+        "serviceDatas": serviceDatas,
+    }
+    return render(request, "services.html", data)
 
 
 def ContactPage(request):

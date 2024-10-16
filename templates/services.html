@@ -13,18 +13,20 @@
     </div>
     <div class="row">
 
+      {% for serviceData in serviceDatas %}
       <div class="col-md-6 col-lg-4 text-center mb-5">
         <div class="site-service-item rounded">
           <span class="icon">
-            <span class="fa fa-code"></span>
+            <span class="{{serviceData.service_icon}}"></span>
           </span>
-          <h3 class="mb-4">Full-Stack Web Development</h3>
-          <p>Complete end-to-end web application development, from responsive front-end design using
-            Angular or React to secure back-end solutions with .NET or Django or PHP.</p>
+          <h3 class="mb-4">{{serviceData.service_title}}</h3>
+          <p>{{serviceData.service_description}}</p>
         </div>
       </div>
+      {% endfor %}
 
-      <div class="col-md-6 col-lg-4 text-center mb-5">
+
+      <!-- <div class="col-md-6 col-lg-4 text-center mb-5">
         <div class="site-service-item rounded">
           <span class="icon">
             <span class="fa-brands fa-wordpress"></span>
@@ -71,7 +73,6 @@
         <div class="site-service-item rounded">
           <span class="icon">
             <span class="fa fa-video"></span>
-            <!-- You can change the icon class based on your preference -->
           </span>
           <h3 class="mb-4">Video Editing</h3>
           <p>High-quality video editing for promotional videos, YouTube, social media, and other
@@ -88,7 +89,7 @@
           <p>Beautiful and functional web designs using Figma. From wireframes to complete UI/UX designs,
             tailored to your brand and user experience.</p>
         </div>
-      </div>
+      </div> -->
 
 
 
