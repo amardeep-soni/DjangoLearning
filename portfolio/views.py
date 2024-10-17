@@ -13,7 +13,8 @@ def AboutPage(request):
 
 
 def ServicePage(request):
-    serviceDatas = Service.objects.all()
+    # for descending just add - before column name
+    serviceDatas = Service.objects.all().order_by('service_title')
     data = {
         "serviceDatas": serviceDatas,
     }
