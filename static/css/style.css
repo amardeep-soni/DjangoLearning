@@ -648,3 +648,22 @@ a:active {
     color: red;
     font-weight: bold;
 }
+
+marquee {
+    position: absolute;
+    top: 100px;
+    background-color: #352599;
+    color: #fff;
+    padding: 10px;
+    border-radius: 16px;
+}
+
+marquee a {
+    padding: 0 16px;
+    text-decoration: none;
+    color: white;
+}
+
+marquee a:hover {
+    text-decoration: underline;
+}

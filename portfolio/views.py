@@ -2,10 +2,15 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import DjangoForm
 from service.models import Service
+from news.models import News
 
 
 def HomePage(request):
-    return render(request, "index.html")
+    newsData = News.objects.all()
+    data = {
+        "newsData": newsData,
+    }
+    return render(request, "index.html", data)
 
 
 def AboutPage(request):
