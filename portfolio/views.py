@@ -23,8 +23,15 @@ def AboutPage(request):
 
 def ServicePage(request):
     serviceDatas = Service.objects.all()
+    filterText = ""
+    if request.method == "GET":
+        st = request.GET.get('filter')
+        if st != None:
+          filterText = st
+          serviceDatas = Service.objects.filter(service_title = st)
     data = {
         "serviceDatas": serviceDatas,
+        "filterText": filterText
     }
     return render(request, "services.html", data)
 
