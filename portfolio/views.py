@@ -28,7 +28,8 @@ def ServicePage(request):
         st = request.GET.get('filter')
         if st != None:
           filterText = st
-          serviceDatas = Service.objects.filter(service_title = st)
+        #   serviceDatas = Service.objects.filter(service_title = st)
+          serviceDatas = Service.objects.filter(service_title__icontains = st)
     data = {
         "serviceDatas": serviceDatas,
         "filterText": filterText
