@@ -24,6 +24,7 @@ urlpatterns = [
     # static url
     path("", views.HomePage, name="home"),
     path("about-us/", views.AboutPage, name="about"),
+    path("news-details/<int:newsId>/", views.newsDetails, name="newsDetails"),
     path("services/", views.ServicePage, name="services"),
     path("contact/", views.ContactPage, name="contact"),
     path("userform/", views.UserForm, name="userform"),

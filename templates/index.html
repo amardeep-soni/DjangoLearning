@@ -7,7 +7,7 @@
     <div class="row intro-text align-items-center justify-content-center position-relative">
       <marquee behavior="slide" direction="left" onmouseover="stop()" onmouseout="start()">
         {% for news in newsData %}
-        <a href="">{{news.news_title}}</a>
+        <a href="/news-details/{{news.id}}">{{news.news_title}}</a>
         {% endfor %}
       </marquee>
       <div class="col-md-10 text-center pt-5">

@@ -12,6 +12,10 @@ def HomePage(request):
     }
     return render(request, "index.html", data)
 
+def newsDetails(request, newsId):
+    print(newsId)
+    data = News.objects.get(id=newsId)
+    return render(request, "newsDetail.html", {'news': data})
 
 def AboutPage(request):
     return render(request, "about.html")
